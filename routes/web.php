@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/index', [MasterController::class, 'index']);
 Route::get('/sampling', [MasterController::class, 'sampling']);
+//FUNCTION IMPORT EXCEL
+Route::post('/import_master', [MasterController::class, 'importmaster']);

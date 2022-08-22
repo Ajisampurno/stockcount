@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Master extends Model
 {
     use HasFactory;
-
     protected $fillable = ['id', 'desc', 'harga', 'lv3', 'lv4'];
 }
