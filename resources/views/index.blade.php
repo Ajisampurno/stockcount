@@ -14,34 +14,13 @@
             <div class="card">
                 <div class="card-header">
                     <form class="d-flex" action="/index" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search" autofocus autocomplete="">
                         <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
                     </form>
                 </div>
                 <div class="card-body">
                     <div id="container">
-                        <table class="table-art table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Artikel</th>
-                                    <th>Desc</th>
-                                    <th>Harga</th>
-                                    <th>LV 3</th>
-                                    <th>LV 4</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($master as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->desc }}</td>
-                                        <td>{{ $item->harga }}</td>
-                                        <td>{{ $item->lv3 }}</td>
-                                        <td>{{ $item->lv4 }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        
                     </div>
                     
                 </div>
