@@ -1,37 +1,49 @@
 @extends('layout.main')
 
 @section('content')
-    <div class="container m-5">
-        <div class="row justify-content-center">
-            <div class="col-md-11">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Master Artikel</h3>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <tr>
-                                <th>Artikel</th>
-                                <th>Desc</th>
-                                <th>Harga</th>
-                                <th>LV 3</th>
-                                <th>LV 4</th>
-                            </tr>
-                            <tr>
+    
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-9">
+            <a href="/export_master">
+                <button class="btn btn-success">Export</button>
+            </a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Import
+            </button>
+            <div class="card">
+                <div class="card-header">
+                    <form class="d-flex" action="/index" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                        <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div id="container">
+                        <table class="table-art table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Artikel</th>
+                                    <th>Desc</th>
+                                    <th>Harga</th>
+                                    <th>LV 3</th>
+                                    <th>LV 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 @foreach ($master as $item)
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->desc }}</td>
-                                    <td>{{ $item->harga }}</td>
-                                    <td>{{ $item->lv3 }}</td>
-                                    <td>{{ $item->ilv4 }}</td>
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->desc }}</td>
+                                        <td>{{ $item->harga }}</td>
+                                        <td>{{ $item->lv3 }}</td>
+                                        <td>{{ $item->lv4 }}</td>
+                                    </tr>
                                 @endforeach
-                            </tr>
+                            </tbody>
                         </table>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -40,26 +52,22 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="/import_master" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                    <div class="form-group">
-                       <input type="file" name="file" required="required">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">keluar</button>
-                        <button type="submit" class="btn btn-primary">Selesai</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/import_master" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                        <div class="form-group">
+                        <input type="file" name="file" required="required">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">keluar</button>
+                            <button type="submit" class="btn btn-primary">Selesai</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
