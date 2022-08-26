@@ -22,5 +22,6 @@ Route::get('/tabel', [MasterController::class, 'tabel']);
 Route::get('/sampling', [MasterController::class, 'sampling']);
 //FUNCTION IMPORT EXCEL
 Route::post('/import_master', [MasterController::class, 'importmaster']);
+Route::post('/import_SOD', [MasterController::class, 'importSOD']);
 //FUNCTION EXPORT KE EXCEL
 Route::get('/export_master', [MasterController::class, 'exportmaster']);

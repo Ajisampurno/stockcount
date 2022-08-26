@@ -56,4 +56,15 @@ class MasterController extends Controller
         Excel::import(new MasterImport, public_path('/DataMaster/' . $nama_file));
         return redirect('/index');
     }
+    //public function importSOD(Request $request)
+    //{
+    //    SOD::truncate();
+    //
+    //    $file = $request->file('file');
+    //    $nama_file = $file->getClientOriginalName();
+    //    $file->move('DataSOD', $nama_file);
+    //
+    //    Excel::import(new SOD, public_path('/DataSOD/' . $nama_file));
+    //    return redirect('/index');
+    //}
 }
